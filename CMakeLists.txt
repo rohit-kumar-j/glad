@@ -9,4 +9,4 @@ add_library(glad
 	${HEADER_FILES}
 )
 
-target_include_directories(glad PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/glad/include)
+target_include_directories(glad PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
