@@ -10,7 +10,7 @@ file(GLOB GLAD_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/glad.c)
 add_library(glad STATIC ${GLAD_SOURCES})
 target_include_directories(glad PUBLIC ${GLAD_HEADERS})
 
-# set_target_properties(glad PROPERTIES LINKER_LANGUAGE CXX)
+set_target_properties(glad PROPERTIES LINKER_LANGUAGE CXX)
 
 install(TARGETS glad
 		EXPORT glad
