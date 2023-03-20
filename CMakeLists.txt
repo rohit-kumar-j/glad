@@ -1,20 +1,20 @@
 cmake_minimum_required(VERSION 3.5)
 project(GLAD_PROJECT CXX)
 
-set(HEADER_FILES
+file(GLOB GLAD_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/include/glad/glad.h
-	${CMAKE_CURRENT_SOURCE_DIR}/include/KHR/khrplatform.h)
-
-add_library(glad STATIC
-	${CMAKE_CURRENT_SOURCE_DIR}/src/glad.c
+	${CMAKE_CURRENT_SOURCE_DIR}/include/KHR/khrplatform.h
 )
-target_include_directories(glad PUBLIC ${HEADER_FILES})
+file(GLOB GLAD_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/glad.c)
 
-set_target_properties(glad PROPERTIES LINKER_LANGUAGE CXX)
+add_library(glad STATIC ${GLAD_SOURCES})
+target_include_directories(glad PUBLIC ${GLAD_HEADERS})
+
+# set_target_properties(glad PROPERTIES LINKER_LANGUAGE CXX)
 
 install(TARGETS glad
 		EXPORT glad
 		CONFIGURATIONS Release
 		LIBRARY DESTINATION lib
 )
-install(FILES ${HEADER_FILES} DESTINATION include/glad)
+install(FILES ${GLAD_HEADERS} DESTINATION include/glad)
