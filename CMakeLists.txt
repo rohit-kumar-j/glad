@@ -18,3 +18,4 @@ set_target_properties(glad PROPERTIES LINKER_LANGUAGE CXX)
 
 install(TARGETS glad EXPORT glad DESTINATION lib)
 install(FILES ${GLAD_HEADERS} DESTINATION include/glad)
+install(FILES ${GLAD_SOURCES} DESTINATION include/glad)
